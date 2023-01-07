@@ -53,7 +53,7 @@ yarn build
 
 ### Librairies utilisées dans ce projet :
 
-React UI Tools : [Material UI](https://mui.com/)
+React UI Tools : [Material UI](https://mui.com/)<br />
 Router : [react-router-dom](https://www.npmjs.com/package/react-router-dom) <br />
 Icons : [Material Icons](https://mui.com/material-ui/material-icons/) <br />
 Styled Components : [emotion/styled](https://emotion.sh/docs/introduction) <br />
