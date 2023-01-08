@@ -1,7 +1,7 @@
 ## Présentation du projet
 ***
 
-Client de l'application MERN de test d'un dashboard d'administration & analytics (techno frontend : React, Redux Toolkit, Material UI, Styled Components, Nivo)
+Client de l'application MERN de test d'un dashboard d'administration & analytics (techno frontend : React, TypeScript, Redux Toolkit, Material UI, Styled Components, Nivo)
 
 Ce projet a été initialisé avec le starter de la CLI [Create React App](https://github.com/facebook/create-react-app).
 
