@@ -3,22 +3,11 @@ import "@emotion/react";
 declare module "@emotion/react" {
   export interface Theme {
     palette: {
-      mode: string,
-      
-      primary: {
-        main: string;
-        light: string;
-      };
-      secondary: {
-        main: string;
-      };
-      neutral: {
-        main: string;
-      };
-      background: {
-        default: string;
-        alt: string;
-      };
+      mode: string;
+      primary: any;
+      secondary: any;
+      neutral: any;
+      background: any;
     };
     typography: {
       fontFamily: string[];

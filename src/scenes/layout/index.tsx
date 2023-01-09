@@ -17,7 +17,7 @@ const Layout: FunctionComponent = () => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Box>
-        <Navbar />
+        <Navbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         <Outlet />
       </Box>
     </Box>

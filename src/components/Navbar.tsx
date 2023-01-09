@@ -6,7 +6,12 @@ import FlexBetween from "./FlexBetween";
 import { Theme } from "@emotion/react";
 import { setMode } from "../store/globalSlice";
 
-const Navbar: FunctionComponent = () => {
+type NavbarProps = {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Navbar: FunctionComponent<NavbarProps> = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useAppDispatch();
   const theme: Theme = useTheme();
 
@@ -15,7 +20,7 @@ const Navbar: FunctionComponent = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
-          <IconButton onClick={() => console.log("open/close sidebar")}>
+          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
 
