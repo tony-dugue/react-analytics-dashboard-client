@@ -1,11 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
 import globalReducer from './globalSlice'
 
+// RTK Query
+import { setupListeners } from '@reduxjs/toolkit/query'
+import { api } from './services/api'
+
 const store = configureStore({
   reducer: {
-    global: globalReducer
-  }
+    global: globalReducer,
+    [api.reducerPath]: api.reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 })
+
+setupListeners(store.dispatch)
 
 export default store
 // Infer the `RootState` and `AppDispatch` types from the store itself
