@@ -6,6 +6,7 @@ import { useAppSelector } from "./hooks/custom-redux-hooks";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./scenes/layout";
 import Dashboard from "./scenes/dashboard";
+import Products from "./scenes/products";
 
 const App: FunctionComponent = () => {
   const mode = useAppSelector((state) => state.global.mode);
@@ -20,6 +21,7 @@ const App: FunctionComponent = () => {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
             </Route>
           </Routes>
         </ThemeProvider>

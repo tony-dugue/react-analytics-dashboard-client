@@ -1,7 +1,25 @@
 import React, { FunctionComponent, useState } from "react";
 import { useAppDispatch } from "../hooks/custom-redux-hooks";
-import { AppBar, Box, Button, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography, useTheme } from "@mui/material";
-import { ArrowDropDownOutlined, DarkModeOutlined, LightModeOutlined, Menu as MenuIcon, Search, SettingsOutlined } from "@mui/icons-material";
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  InputBase,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import {
+  ArrowDropDownOutlined,
+  DarkModeOutlined,
+  LightModeOutlined,
+  Menu as MenuIcon,
+  Search,
+  SettingsOutlined,
+} from "@mui/icons-material";
 import FlexBetween from "./FlexBetween";
 import { Theme } from "@emotion/react";
 import { setMode } from "../store/globalSlice";
@@ -9,24 +27,29 @@ import profileImage from "../assets/profile.jpeg";
 import User from "../models/user";
 
 type NavbarProps = {
-  user: User,
+  user: User;
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Navbar: FunctionComponent<NavbarProps> = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar: FunctionComponent<NavbarProps> = ({
+  user,
+  isSidebarOpen,
+  setIsSidebarOpen,
+}) => {
   const dispatch = useAppDispatch();
   const theme: Theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const isOpen = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => setAnchorEl(event.currentTarget);
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar sx={{ position: "static", background: "none", boxShadow: "none" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
-
         {/* LEFT SIDE */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
@@ -67,7 +90,14 @@ const Navbar: FunctionComponent<NavbarProps> = ({ user, isSidebarOpen, setIsSide
           <FlexBetween>
             <Button
               onClick={handleClick}
-              sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", textTransform: "none", gap: "1rem" }}>
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
+            >
               <Box
                 component="img"
                 alt="profile"
@@ -78,10 +108,23 @@ const Navbar: FunctionComponent<NavbarProps> = ({ user, isSidebarOpen, setIsSide
                 sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
-                <Typography fontWeight="bold" fontSize="0.85rem" sx={{ color: theme.palette.secondary[100] }}>{user.name}</Typography>
-                <Typography fontSize="0.75rem" sx={{ color: theme.palette.secondary[200] }}>{user.occupation}</Typography>
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.85rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontSize="0.75rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
               </Box>
-              <ArrowDropDownOutlined sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}/>
+              <ArrowDropDownOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
+              />
             </Button>
             <Menu
               anchorEl={anchorEl}
@@ -92,7 +135,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({ user, isSidebarOpen, setIsSide
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
-
         </FlexBetween>
       </Toolbar>
     </AppBar>

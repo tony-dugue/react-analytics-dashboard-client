@@ -1,15 +1,42 @@
 import React, { FunctionComponent, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Theme } from "@emotion/react";
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { useEffect } from "react";
 import FlexBetween from "./FlexBetween";
-import { AdminPanelSettingsOutlined, CalendarMonthOutlined, ChevronLeft, ChevronRightOutlined, Groups2Outlined, HomeOutlined, PieChartOutlined, PointOfSaleOutlined, PublicOutlined, ReceiptLongOutlined, SettingsOutlined, ShoppingCartOutlined, TodayOutlined, TrendingUpOutlined } from "@mui/icons-material";
+import {
+  AdminPanelSettingsOutlined,
+  CalendarMonthOutlined,
+  ChevronLeft,
+  ChevronRightOutlined,
+  Groups2Outlined,
+  HomeOutlined,
+  PieChartOutlined,
+  PointOfSaleOutlined,
+  PublicOutlined,
+  ReceiptLongOutlined,
+  SettingsOutlined,
+  ShoppingCartOutlined,
+  TodayOutlined,
+  TrendingUpOutlined,
+} from "@mui/icons-material";
 import profileImage from "../assets/profile.jpeg";
 import User from "../models/user";
 
 type SidebarProps = {
-  user: User,
+  user: User;
   isNonMobile: boolean;
   drawerWidth: string;
   isSidebarOpen: boolean;
@@ -19,7 +46,7 @@ type SidebarProps = {
 type NavItem = {
   text: string;
   icon: JSX.Element | null;
-}
+};
 
 const navItems: NavItem[] = [
   { text: "Dashboard", icon: <HomeOutlined /> },
@@ -92,49 +119,66 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
 
             <List>
               {navItems.map(({ text, icon }) => {
-                  if (!icon) {
-                    return (
-                      <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
-                        {text}
-                      </Typography>
-                    );
-                  }
-
-                  const lcText = text.toLocaleLowerCase();
-
+                if (!icon) {
                   return (
-                    <ListItem key={text} disablePadding>
-                      <ListItemButton
+                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                      {text}
+                    </Typography>
+                  );
+                }
+
+                const lcText = text.toLocaleLowerCase();
+
+                return (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
                         setActive(lcText);
                       }}
                       sx={{
-                        backgroundColor: active === lcText ? theme.palette.secondary[300] : "transparent",
-                        color: active === lcText ? theme.palette.primary[600] : theme.palette.secondary[100],
-                      }} 
+                        backgroundColor:
+                          active === lcText
+                            ? theme.palette.secondary[300]
+                            : "transparent",
+                        color:
+                          active === lcText
+                            ? theme.palette.primary[600]
+                            : theme.palette.secondary[100],
+                      }}
                     >
                       <ListItemIcon
                         sx={{
                           ml: "2rem",
-                          color: active === lcText ? theme.palette.primary[600] : theme.palette.secondary[200] 
+                          color:
+                            active === lcText
+                              ? theme.palette.primary[600]
+                              : theme.palette.secondary[200],
                         }}
                       >
                         {icon}
                       </ListItemIcon>
                       <ListItemText primary={text} />
-                      {active === lcText && <ChevronRightOutlined sx={{ ml: "auto" }} />}
+                      {active === lcText && (
+                        <ChevronRightOutlined sx={{ ml: "auto" }} />
+                      )}
                     </ListItemButton>
-                    </ListItem>
-                  )
+                  </ListItem>
+                );
               })}
             </List>
           </Box>
 
           <Box sx={{ marginBottom: "2rem" }}>
             <Divider />
-            <FlexBetween sx={{ textTransform: 'none', gap: '1rem', margin: "1.5rem 2rem 0 3rem" }}>
-            <Box
+            <FlexBetween
+              sx={{
+                textTransform: "none",
+                gap: "1rem",
+                margin: "1.5rem 2rem 0 3rem",
+              }}
+            >
+              <Box
                 component="img"
                 alt="profile"
                 src={profileImage}
@@ -144,17 +188,25 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
                 sx={{ objectFit: "cover" }}
               />
               <Box textAlign="left">
-                <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }}>
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
                   {user.name}
                 </Typography>
-                <Typography fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }}>
+                <Typography
+                  fontSize="0.8rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
                   {user.occupation}
                 </Typography>
               </Box>
-              <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize: "25px " }} />
+              <SettingsOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "25px " }}
+              />
             </FlexBetween>
           </Box>
-
         </Drawer>
       )}
     </Box>
