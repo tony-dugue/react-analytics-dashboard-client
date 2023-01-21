@@ -8,8 +8,11 @@ import Layout from "./scenes/layout";
 import Dashboard from "./scenes/dashboard";
 import Products from "./scenes/products";
 import Customers from "./scenes/customers";
+<<<<<<< HEAD
 import Transactions from "./scenes/transactions";
 import Geography from "./scenes/geography";
+=======
+>>>>>>> parent of e32dabd (Added Transactions page content with datatable + server-side pagination & custom toolbar)
 
 const App: FunctionComponent = () => {
   const mode = useAppSelector((state) => state.global.mode);
@@ -26,8 +29,11 @@ const App: FunctionComponent = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
               <Route path="/customers" element={<Customers />} />
+<<<<<<< HEAD
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/geography" element={<Geography />} />
+=======
+>>>>>>> parent of e32dabd (Added Transactions page content with datatable + server-side pagination & custom toolbar)
             </Route>
           </Routes>
         </ThemeProvider>
