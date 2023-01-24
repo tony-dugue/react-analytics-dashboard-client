@@ -6,7 +6,7 @@ export default class OverallStat {
   year?: Number;
   monthlyData: Array<{ month: string, totalSales: number, totalUnits: number }> = [];
   dailyData: Array<{ date: string, totalSales: number, totalUnits: number }> = [];
-  salesByCategory?: Object;
+  salesByCategory?: any;
   createdAt?: Date;
   updatedAt?: Date;
 }
