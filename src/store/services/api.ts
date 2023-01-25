@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import PerformanceStat from "../../models/performanceStat";
 import Geography from "../../models/geography";
-import OverallStat from "../../models/OverallStat";
+import OverallStat from "../../models/overallStat";
 import Product from "../../models/product";
 import Transaction from "../../models/transaction";
 import User from "../../models/user";
@@ -8,7 +9,7 @@ import User from "../../models/user";
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: "adminApi",
-  tagTypes: ["User", "Products", "Customers", "Transactions", "Geography", "Sales", "Admins"],
+  tagTypes: ["User", "Products", "Customers", "Transactions", "Geography", "Sales", "Admins", "Performance"],
 
   endpoints: (build) => ({
 
@@ -53,8 +54,13 @@ export const api = createApi({
       query: () => "management/admins",
       providesTags: ["Admins"],
     }),
+
+    getUserPerformance: build.query<PerformanceStat, string>({
+      query: (id) => `management/performance/${id}`,
+      providesTags: ["Performance"],
+    }),
   }),
-});
+})
 
 export const {
   useGetUserQuery,
@@ -63,5 +69,6 @@ export const {
   useGetTransactionsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
-  useGetAdminsQuery
+  useGetAdminsQuery,
+  useGetUserPerformanceQuery,
 } = api;
