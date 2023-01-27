@@ -1,7 +1,7 @@
 import Product from "./product";
 
-export default class PerformanceStat {
-  sales: Array<{_id: string, userId: string, cost: string, products: Product[]}> = [];
+export default interface PerformanceStat {
+  sales: Array<{_id: string, userId: string, cost: string, products: Product[]}>;
   user?: {
     _id?: string;
     affiliateStats: {

@@ -24,7 +24,7 @@ import FlexBetween from "./FlexBetween";
 import { Theme } from "@emotion/react";
 import { setMode } from "../store/globalSlice";
 import profileImage from "../assets/profile.jpeg";
-import User from "../models/user";
+import User from "../interfaces/user";
 
 type NavbarProps = {
   user: User;

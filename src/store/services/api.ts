@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import PerformanceStat from "../../models/performanceStat";
-import DashboardStat from "../../models/dashboardStat";
-import Geography from "../../models/geography";
-import OverallStat from "../../models/overallStat";
-import Product from "../../models/product";
-import Transaction from "../../models/transaction";
-import User from "../../models/user";
+import PerformanceStat from "../../interfaces/performanceStat";
+import DashboardStat from "../../interfaces/dashboardStat";
+import Geography from "../../interfaces/geography";
+import OverallStat from "../../interfaces/overallStat";
+import Product from "../../interfaces/product";
+import Transaction from "../../interfaces/transaction";
+import User from "../../interfaces/user";
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),

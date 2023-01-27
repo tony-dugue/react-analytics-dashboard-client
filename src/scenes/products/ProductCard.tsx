@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import { Button, Card, CardActions, CardContent, Collapse, Rating, Typography, useTheme } from '@mui/material';
 import { Theme } from "@emotion/react";
-import Product from '../../models/product';
+import Product from '../../interfaces/product';
  
 const ProductCard: FunctionComponent<Product> = ({ _id, name, description, price, rating, category, supply, stat }) => {
 

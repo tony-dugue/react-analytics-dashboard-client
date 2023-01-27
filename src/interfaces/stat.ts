@@ -1,4 +1,4 @@
-export default class Stat {
+export default interface Stat {
   _id?: string;
   productId?: string;
   yearlySalesTotal?: number;

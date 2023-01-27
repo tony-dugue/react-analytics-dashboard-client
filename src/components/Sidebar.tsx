@@ -33,7 +33,7 @@ import {
   TrendingUpOutlined,
 } from "@mui/icons-material";
 import profileImage from "../assets/profile.jpeg";
-import User from "../models/user";
+import User from "../interfaces/user";
 
 type SidebarProps = {
   user: User;

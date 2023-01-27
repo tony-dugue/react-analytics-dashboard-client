@@ -1,7 +1,7 @@
 import { Box, useMediaQuery } from "@mui/material";
 import React, { FunctionComponent } from "react";
 import Header from "../../components/Header";
-import Product from "../../models/product";
+import Product from "../../interfaces/product";
 import { useGetProductsQuery } from "../../store/services/api";
 import ProductCard from "./ProductCard";
 

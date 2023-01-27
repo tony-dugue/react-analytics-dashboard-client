@@ -1,6 +1,6 @@
 import Stat from "./stat";
 
-export default class Product {
+export default interface Product {
   _id?: string;
   name?: string;
   price?: number;
